@@ -1,0 +1,73 @@
+@extends($activeTemplate.'layouts.master')
+@section('seller')
+<div class="card-area">
+    <div class="row justify-content-center">
+        <div class="col-xl-12">
+            <div class="card custom--card">
+                <div class="card-header d-flex flex-wrap align-items-center justify-content-between">
+                    <h4 class="card-title mb-0">@lang('Authorize Net')</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-form-wrapper">
+                        <div class="card-wrapper mb-3"></div>
+                        <form role="form" id="payment-form" method="{{$data->method}}" action="{{$data->url}}">
+                            @csrf
+                            <input type="hidden" value="{{$data->track}}" name="track">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>@lang('Name on Card')</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="off" autofocus/>
+                                        <span class="input-group-text"><i class="fa fa-font"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>@lang('Card Number')</label>
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control" name="cardNumber" autocomplete="off" value="{{ old('cardNumber') }}" required autofocus/>
+                                        <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <label>@lang('Expiration Date')</label>
+                                    <input type="tel" class="form-control" name="cardExpiry" value="{{ old('cardExpiry') }}" autocomplete="off" required/>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label>@lang('CVC Code')</label>
+                                    <input type="tel" class="form-control" name="cardCVC" value="{{ old('cardCVC') }}" autocomplete="off" required/>
+                                </div>
+                            </div>
+                            <br>
+                            <button class="btn btn--base w-100 h-45" type="submit"> @lang('Submit')</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
+@push('script')
+    <script src="{{ asset('assets/global/js/card.js') }}"></script>
+
+    <script>
+        (function ($) {
+            "use strict";
+            var card = new Card({
+                form: '#payment-form',
+                container: '.card-wrapper',
+                formSelectors: {
+                    numberInput: 'input[name="cardNumber"]',
+                    expiryInput: 'input[name="cardExpiry"]',
+                    cvcInput: 'input[name="cardCVC"]',
+                    nameInput: 'input[name="name"]'
+                }
+            });
+        })(jQuery);
+    </script>
+@endpush

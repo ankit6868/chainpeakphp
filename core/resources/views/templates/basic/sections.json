@@ -1,0 +1,83 @@
+{
+    "bg_image": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Background Image",
+        "content": {
+            "images":{
+                "image":{
+                    "size":"1920x1200"
+                }
+            }
+        }
+    },
+    "blog": {
+        "builder": true,
+        "name": "Blog Section",
+        "element": {
+            "images":{
+                "image":{
+                    "size":"966x560",
+                    "thumb":"320x190"
+                }
+            },
+            "title": "text",
+            "description": "textarea-nic",
+            "modal": false
+        }
+    },
+    "contact": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Contact Us",
+        "content": {
+            "heading":"text",
+            "sub_heading":"text",
+            "form_heading": "text",
+            "form_sub_heading": "text"
+        },
+        "element": {
+            "icon": "icon",
+            "title": "text",
+            "details": "text",
+            "modal": true
+        }
+    },
+    "footer": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Footer Sections",
+        "content": {
+            "heading": "text",
+            "description": "textarea",
+            "subscribe_heading": "text",
+            "subscribe_description": "textarea",
+            "copyright_text": "text"
+        },
+        "element": {
+            "title": "text",
+            "social_icon": "icon",
+            "url": "text",
+            "modal": true
+        }
+    },
+    "policy_pages": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Policy Pages",
+        "element": {
+            "title": "text",
+            "details": "textarea-nic",
+            "modal": false
+        }
+    },
+    "kyc_instructions": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Kyc Instructions",
+        "content": {
+            "for_verification": "textarea",
+            "for_pending": "textarea"
+        }
+    }
+}
